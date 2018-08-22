@@ -1,0 +1,21 @@
+.profile {
+	margin: 5%;
+}
+
+.profile a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.profile h1 {
+	margin-bottom: 25px;
+	font-weight: bold;	
+}
+
+.profile p {
+	margin-bottom: 0.4em;
+}
+
+.small-icon {
+	margin-left: 4px;
+}
