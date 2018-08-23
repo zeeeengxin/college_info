@@ -1,19 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-
+import url from '../queryString.js';
+import FileSaver from 'file-saver/FileSaver';
 
 import Profile from '../Profile/Profile';
 import ProgramsChart from '../Charts/ProgramsChart';
 import PriceByIncomeChart from '../Charts/PriceByIncomeChart';
-import SATChart from '../Charts/SATChart';
-
-
 import RaceChart from '../Charts/RaceChart';
-
-import url from '../queryString.js';
-import FileSaver from 'file-saver/FileSaver';
+import SATChart from '../Charts/SATChart';
 import './Main.css';
-
 
 export class Main extends React.Component {
     constructor(props) {
@@ -21,12 +16,16 @@ export class Main extends React.Component {
         this.state = {
             schoolInfo: {}
         }
-        this.downloadData = this.downloadData.bind(this);
     }
     
-
     componentDidMount() {
         this.loadSchoolInfo('240444');
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.schoolId !== prevProps.schoolId && this.props.schoolId !== undefined && this.props.schoolId.length > 0) {
+            this.loadSchoolInfo(this.props.schoolId);
+        }
     }
 
     loadSchoolInfo = (schoolId) => {
@@ -45,7 +44,7 @@ export class Main extends React.Component {
             });
     }
 
-    downloadData(e) {
+    downloadData = (e) => {
         e.preventDefault();
         var blob = new Blob([JSON.stringify(this.state.schoolInfo)], {type: "application/json;charset=utf-8"});
         FileSaver.saveAs(blob, "data.text");
@@ -71,9 +70,7 @@ export class Main extends React.Component {
                 </div>
                 <div className="button">
                     <button className="btn btn-secondary btn-lg" onClick={this.downloadData}>Download Data</button>
-                </div>
-                
-                
+                </div>             
             </div>
         );
     }

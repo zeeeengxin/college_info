@@ -12,17 +12,13 @@ class SATChart extends React.Component {
   }
   
   componentDidUpdate(prevProps) {
-
-  // Typical usage (don't forget to compare props):
-  if (this.props.schoolInfo !== prevProps.schoolInfo && this.props.schoolInfo !== undefined) {
-    this.setState({data: this.parseData(this.props.schoolInfo)});
-  }
+    if (this.props.schoolInfo !== prevProps.schoolInfo && this.props.schoolInfo !== undefined) {
+      this.setState({data: this.parseData(this.props.schoolInfo)});
+    }
   }
 
   parseData = (schoolInfo) => {
-    var data = {
-      
-    };
+    var data = {};
     Object.keys(schoolInfo).forEach(function(key, index) {
       
         if (key.includes("writing")) {      
@@ -35,13 +31,12 @@ class SATChart extends React.Component {
               }             
         }
     });
-    
     return data;
   }
   
   render() {  
-  if (this.props.schoolInfo !== undefined) {   
-    const chartConfigs = {
+    if (this.props.schoolInfo !== undefined) {   
+      const chartConfigs = {
       	type: 'hlineargauge',
   		  width: "100%",
   		  height: 150,
@@ -49,10 +44,10 @@ class SATChart extends React.Component {
 
         dataSource: {
           "chart": {
-          "caption": "SAT Writing Score",		
-		      "theme": "ocean"
-        },
-    	   "colorrange": {
+            "caption": "SAT Writing Score",		
+  		      "theme": "ocean"
+          },
+    	    "colorrange": {
             "color": [
               {
                 "minvalue": 0,
@@ -79,8 +74,8 @@ class SATChart extends React.Component {
                 "code": "2786AB"
               }
             ]
-         },
-         "pointers": {
+          },
+          "pointers": {
             "pointer": [
               {
                 "value": this.state.data["25th percentile"]
@@ -92,11 +87,13 @@ class SATChart extends React.Component {
                 "value": this.state.data["75th percentile"]
               }
             ]
-         }
-    }
-};        
+          }
+        }
+      };        
       return (
-      <ReactFC {...chartConfigs} />
+        <div>
+          <ReactFC {...chartConfigs} />
+        </div>
       );
     } else {
       return null;

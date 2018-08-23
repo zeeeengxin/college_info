@@ -1,7 +1,9 @@
 import api_key from './api_key';
 
 const basic = 'https://api.data.gov/ed/collegescorecard/v1/schools?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&_fields=';
+
 const profile = 'school.name,school.city,school.state,school.zip,school.school_url,2015.student.size,';
+
 const programs = 
 '2015.academics.program_percentage.agriculture,' +
 '2015.academics.program_percentage.resources,' +
