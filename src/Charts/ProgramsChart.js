@@ -1,10 +1,5 @@
 import React from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Doughnut2d from 'fusioncharts/viz/doughnut2d';
 import ReactFC from 'react-fusioncharts';
-import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.ocean';
-
-ReactFC.fcRoot(FusionCharts, Doughnut2d, FusionTheme);
 
 class ProgramsChart extends React.Component {
     state = {

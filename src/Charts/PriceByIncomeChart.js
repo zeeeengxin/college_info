@@ -1,10 +1,5 @@
 import React from 'react';
-import FusionCharts from 'fusioncharts/core';
-import Column2D from 'fusioncharts/viz/bar2d';
 import ReactFC from 'react-fusioncharts';
-import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.ocean';
-
-ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 class PriceByIncomeChart extends React.Component {
     state = {

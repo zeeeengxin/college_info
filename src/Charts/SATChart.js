@@ -1,10 +1,5 @@
 import React from 'react';
-import FusionCharts from 'fusioncharts/core';
-import LinearScale from 'fusioncharts/viz/hlineargauge';
 import ReactFC from 'react-fusioncharts';
-import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.ocean';
-
-ReactFC.fcRoot(FusionCharts, LinearScale, FusionTheme);
 
 class SATChart extends React.Component {
   state = {
